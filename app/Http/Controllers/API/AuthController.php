@@ -15,6 +15,12 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+
+    public function NewgenerateOTP(){
+        $otp = mt_rand(1000,9999);
+        return $otp;
+    }
+
     public function generateOTP(){
         $otp = mt_rand(1000,9999);
         return $otp;
