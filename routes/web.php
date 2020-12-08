@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,19 @@ Route::get('/sms', function () {
     return view('sms');
 });
 Route::post('/send-sms','API\AuthController@sendSms');
+
+Route::get('/clear-cache', function() {
+    $exitCode = Artisan::call('cache:clear');
+    // return what you want
+});
+Route::get('/clear-view', function() {
+    $exitCode = Artisan::call('view:clear');
+    // return what you want
+});
+Route::get('/clear-config-cache', function() {
+    $exitCode = Artisan::call('config:clear');
+    // return what you want
+});
 
 Auth::routes();
 
